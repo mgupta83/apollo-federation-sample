@@ -1,17 +1,19 @@
-import { AzureFunction, Context, HttpRequest } from "@azure/functions"
+import { ApolloServer } from "apollo-server-azure-functions";
+import { HttpRequest, Context } from "@azure/functions";
+import ApolloServerFunctions from "./ApolloServerFunctions";
 
-const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
-    context.log('HTTP trigger function processed a request.');
-    const name = (req.query.name || (req.body && req.body.name));
-    const responseMessage = name
-        ? "Hello, " + name + ". This HTTP triggered function executed successfully."
-        : "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.";
+process.on("uncaughtException", (err) => {
+    console.log(`*** [Process-Error-Unhandled] - ${JSON.stringify(err)}`)
+    process.exit(1);
+});
 
-    context.res = {
-        // status: 200, /* Defaults to 200 */
-        body: responseMessage
-    };
 
+const serverConfig = ApolloServerFunctions.serverConfig();
+
+const server = new ApolloServer({
+  ...serverConfig
+});
+
+export default (context: Context, req: HttpRequest) => {
+  return ApolloServerFunctions.graphqlHandler(server, context, req);
 };
-
-export default httpTrigger;

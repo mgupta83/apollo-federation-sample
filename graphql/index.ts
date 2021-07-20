@@ -3,7 +3,7 @@ import { HttpRequest, Context } from "@azure/functions";
 import ApolloServerFunctions from "./ApolloServerFunctions";
 
 process.on("uncaughtException", (err) => {
-    console.log(`*** [Process-Error-Unhandled] - ${JSON.stringify(err)}`)
+    console.log(`*** [graphql-unhandled-error] - ${JSON.stringify(err)}`)
     process.exit(1);
 });
 

@@ -1,0 +1,1 @@
+export {physicians} from './physicians'

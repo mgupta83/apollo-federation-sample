@@ -1,6 +1,6 @@
 import { gql } from "apollo-server-azure-functions"
 import {IPhysicianData} from '../../../interfaces'
-import {physicians} from '../../../functions/getPhysicianData'
+import {getPhysicians} from '../../../functions'
 
 export const typeDefs = gql`
   extend type Query {
@@ -9,8 +9,8 @@ export const typeDefs = gql`
 
 `
 
-export const resolvers = (): IPhysicianData[] => {
-    return physicians
+export const resolvers = (root, args, context, info): IPhysicianData[] => {
+    return getPhysicians()
 }
 
 

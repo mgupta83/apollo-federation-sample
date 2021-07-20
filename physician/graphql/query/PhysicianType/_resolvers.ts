@@ -1,0 +1,5 @@
+export {resolvers as _base} from './_base'
+export {resolvers as email} from './email'
+export {resolvers as lastName} from './lastName'
+export {resolvers as restOfName} from './restOfName'
+export {resolvers as minicexAccount} from './minicexAccount'

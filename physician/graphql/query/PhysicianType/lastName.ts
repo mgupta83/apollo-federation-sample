@@ -3,13 +3,13 @@ import {IPhysicianData} from '../../../interfaces'
 
 export const typeDefs = gql`
   extend type PhysicianType {
-    email: String
+    lastName: String
   }
 
 `
 
 export const resolvers = (root: IPhysicianData, args, context, info): string => {
-    return root.email
+    return root.lastName
 }
 
 

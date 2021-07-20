@@ -1,0 +1,6 @@
+export {typeDefs as _base} from './_base'
+export {typeDefs as encounpterId} from './encounterId'
+export {typeDefs as physicianEmail} from './physicianEmail'
+export {typeDefs as usmleId} from './usmleId'
+export {typeDefs as status} from './status'
+export {typeDefs as __resolveReference} from './__resolveReference'

@@ -4,6 +4,7 @@ import {getPhysicianByKeys} from '../../../functions'
 
 export const typeDefs = gql`
   extend type PhysicianType @key(fields: "email") {
+    _empty: String
   }
 
 `

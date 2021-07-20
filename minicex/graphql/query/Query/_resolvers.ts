@@ -1,0 +1,1 @@
+export {resolvers as minicexRecords} from './minicexRecords'

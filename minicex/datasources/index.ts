@@ -1,0 +1,1 @@
+export {minicexRecords} from './minicexRecords'

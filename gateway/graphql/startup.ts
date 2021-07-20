@@ -2,14 +2,21 @@ import { ApolloServer } from "apollo-server-azure-functions";
 import { HttpRequest, Context } from "@azure/functions";
 import {ApolloGateway, LocalGraphQLDataSource} from '@apollo/gateway'
 import physicianSchema from '../../physician/graphql/schema'
+import minicexSchema from '../../minicex/graphql/schema'
 
 const gateway = new ApolloGateway({
   serviceList: [
-    { name: "physicians", url: "http://physicians" }
+    { name: "physician", url: "http://physician" },
+    { name: "minicex", url: "http://minicex" },
   ]
   ,
-  buildService: ({url}) => {
-    return new LocalGraphQLDataSource(physicianSchema)
+  buildService: ({url, name}) => {
+    let schema
+    switch(name){
+      case 'physician': schema = new LocalGraphQLDataSource(physicianSchema); break
+      case 'minicex': schema = new LocalGraphQLDataSource(minicexSchema); break
+    }
+    return schema
   }
 })
 

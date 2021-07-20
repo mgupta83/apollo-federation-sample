@@ -1,0 +1,6 @@
+export {resolvers as _base} from './_base'
+export {resolvers as encounterId} from './encounterId'
+export {resolvers as physicianEmail} from './physicianEmail'
+export {resolvers as usmleId} from './usmleId'
+export {resolvers as status} from './status'
+export {resolvers as __resolveReference} from './__resolveReference'

@@ -3,7 +3,7 @@ import {IMiniCEXData} from '../../../interfaces'
 
 export const typeDefs = gql`
   extend type MiniCEXRecordType {
-    encounterId: String
+    encounterId: String!
   }
 
 `

@@ -4,7 +4,7 @@ import {getMiniCEXRecordByKeys} from '../../../functions'
 
 export const typeDefs = gql`
   extend type MiniCEXRecordType @key(fields: "encounterId") {
-    _empty: String
+    _emptyRef: String
   }
 
 `

@@ -3,7 +3,7 @@ import {IPhysicianData} from '../../../interfaces'
 
 export const typeDefs = gql`
   extend type PhysicianType {
-    email: String
+    email: String!
   }
 
 `
